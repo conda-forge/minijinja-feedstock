@@ -1,5 +1,5 @@
 {% set name = "minijinja" %}
-{% set version = "1.0.13" %}
+{% set version = "1.0.14" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/minijinja-{{ version }}.tar.gz
-  sha256: f423e2da0a139a82024c1c62f17a900ddde3c1559f339265a2ac3ed525ef22e5
+  sha256: a7b8ba9bb3ce32b6d83d50730882c14ddf8643b245378367dac41d0a24104706
 
 build:
   script:
