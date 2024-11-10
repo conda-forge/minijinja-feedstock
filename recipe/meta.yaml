@@ -18,19 +18,17 @@ build:
 
 requirements:
   build:
-    - python                                 # [build_platform != target_platform]
-    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - python                              # [build_platform != target_platform]
     - cross-python_{{ target_platform }}  # [build_platform != target_platform]
     - crossenv                            # [build_platform != target_platform]
-    - maturin >=0.15,<0.16                # [build_platform != target_platform]
+    - maturin >=1.5                       # [build_platform != target_platform]
     - {{ compiler('rust') }}
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - cargo-bundle-licenses
   host:
     - python
-    - maturin >=0.15,<0.16
+    - maturin >=1.5
     - pip
   run:
     - python
@@ -49,7 +47,7 @@ about:
   license: Apache-2.0
   license_file:
     - LICENSE
-    - local_dependencies/minijinja/LICENSE
+    - minijinja/LICENSE
     - THIRDPARTY.yml
   dev_url: https://github.com/mitsuhiko/minijinja
 
