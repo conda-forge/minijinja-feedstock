@@ -46,7 +46,7 @@ about:
   license: Apache-2.0
   license_file:
     - LICENSE
-    - local_dependencies/minijinja/LICENSE
+    - minijinja/LICENSE
     - THIRDPARTY.yml
   dev_url: https://github.com/mitsuhiko/minijinja
 
