@@ -5,7 +5,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/m/minijinja/minijinja-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/m/minijinja/minijinja-{{ version }}.tar.gz
   sha256: ca97a8d8053aa0111f855d6706883dbfdbda600bd2dd0e152c03077a42c003e3
 
 build:
