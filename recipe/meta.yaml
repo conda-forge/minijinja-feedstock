@@ -1,13 +1,13 @@
 {% set name = "minijinja" %}
-{% set version = "2.0.1" %}
+{% set version = "2.5.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/minijinja-{{ version }}.tar.gz
-  sha256: e774beffebfb8a1ad17e638ef70917cf5e94593f79acb8a8fff7d983169f3a4e
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/minijinja-{{ version }}.tar.gz
+  sha256: ca97a8d8053aa0111f855d6706883dbfdbda600bd2dd0e152c03077a42c003e3
 
 build:
   script:
@@ -18,19 +18,17 @@ build:
 
 requirements:
   build:
-    - python                                 # [build_platform != target_platform]
-    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - python                              # [build_platform != target_platform]
     - cross-python_{{ target_platform }}  # [build_platform != target_platform]
     - crossenv                            # [build_platform != target_platform]
-    - maturin >=0.15,<0.16                # [build_platform != target_platform]
+    - maturin >=1.5                       # [build_platform != target_platform]
     - {{ compiler('rust') }}
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - cargo-bundle-licenses
   host:
     - python
-    - maturin >=0.15,<0.16
+    - maturin >=1.5
     - pip
   run:
     - python
@@ -49,7 +47,7 @@ about:
   license: Apache-2.0
   license_file:
     - LICENSE
-    - local_dependencies/minijinja/LICENSE
+    - minijinja/LICENSE
     - THIRDPARTY.yml
   dev_url: https://github.com/mitsuhiko/minijinja
 
