@@ -1,5 +1,5 @@
 {% set name = "minijinja" %}
-{% set version = "2.5.0" %}
+{% set version = "2.6.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,13 +7,13 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/minijinja-{{ version }}.tar.gz
-  sha256: ca97a8d8053aa0111f855d6706883dbfdbda600bd2dd0e152c03077a42c003e3
+  sha256: e695a774ad9dce3357485268a8b1ca2584c6903f99926a6ab0e31bd8eabe4aab
 
 build:
   script:
     - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
     - {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
   skip: true  # [py<38]
 
 requirements:
