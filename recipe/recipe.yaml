@@ -1,0 +1,59 @@
+schema_version: 1
+
+context:
+  name: minijinja
+  version: 2.12.0
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/minijinja-${{ version }}.tar.gz
+  sha256: 3161784322cd94ccf1dc7448382ea91d9c62aa9b8ebc7a781d4ae78ee4f1268d
+
+build:
+  number: 0
+  skip: match(python, "<3.8")
+  script:
+    - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
+    - ${{ PYTHON }} -m pip install . -vv --no-build-isolation --no-deps
+
+requirements:
+  build:
+    - if: build_platform != target_platform
+      then:
+      - python
+      - cross-python_${{ target_platform }}
+      - crossenv
+      - maturin >=1.5
+    - ${{ compiler('rust') }}
+    - ${{ compiler('c') }}
+    - ${{ stdlib("c") }}
+    - cargo-bundle-licenses
+  host:
+    - python
+    - maturin >=1.5
+    - pip
+  run:
+    - python
+
+tests:
+  - python:
+      imports:
+        - minijinja
+      pip_check: true
+
+about:
+  summary: An experimental Python binding of the Rust MiniJinja template engine.
+  license: Apache-2.0
+  license_file:
+    - LICENSE
+    - minijinja/LICENSE
+    - THIRDPARTY.yml
+  homepage: https://github.com/mitsuhiko/minijinja
+  repository: https://github.com/mitsuhiko/minijinja
+
+extra:
+  recipe-maintainers:
+    - synapticarbors
