@@ -13,7 +13,7 @@ source:
   sha256: 3161784322cd94ccf1dc7448382ea91d9c62aa9b8ebc7a781d4ae78ee4f1268d
 
 build:
-  number: 0
+  number: 1
   skip: match(python, "<3.8")
   script:
     - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
@@ -23,10 +23,10 @@ requirements:
   build:
     - if: build_platform != target_platform
       then:
-      - python
-      - cross-python_${{ target_platform }}
-      - crossenv
-      - maturin >=1.5
+        - python
+        - cross-python_${{ target_platform }}
+        - crossenv
+        - maturin >=1.5
     - ${{ compiler('rust') }}
     - ${{ compiler('c') }}
     - ${{ stdlib("c") }}
