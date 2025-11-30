@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: minijinja
-  version: 2.12.0
+  version: "2.13.0"
 
 package:
   name: ${{ name|lower }}
@@ -10,10 +10,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/minijinja-${{ version }}.tar.gz
-  sha256: 3161784322cd94ccf1dc7448382ea91d9c62aa9b8ebc7a781d4ae78ee4f1268d
+  sha256: 27e3307056ffb79c108a3ed5e8e7a783ec6963d1309d2b9fd16df2175c69ec12
 
 build:
-  number: 1
+  number: 0
   skip: match(python, "<3.8")
   script:
     - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
