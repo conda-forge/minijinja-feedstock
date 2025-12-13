@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: minijinja
-  version: "2.13.0"
+  version: "2.14.0"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/minijinja-${{ version }}.tar.gz
-  sha256: 27e3307056ffb79c108a3ed5e8e7a783ec6963d1309d2b9fd16df2175c69ec12
+  sha256: 6475823718bf1bce09eb190dd93aa5cd1412cec2c4b1736efa7125842300f0ae
 
 build:
   number: 0
