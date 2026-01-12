@@ -41,7 +41,8 @@ requirements:
     - maturin >=${{ maturin_min }}
     - pip
     - python
-    - python-abi3
+    - if: is_abi3
+      then: python-abi3
   run:
     - python
 
