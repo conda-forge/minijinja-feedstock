@@ -51,8 +51,12 @@ tests:
       imports: minijinja
       pip_check: true
       python_version:
-        - ${{ python_check_min }}.*
-        - ${{ python_check_max }}.*
+        - if: is_abi3
+          then:
+            - ${{ python_min }}.*
+            - ${{ python_check_max }}.*
+        - else:
+            - "*"
   - files:
       source:
         - minijinja-py/tests/
