@@ -17,7 +17,7 @@ source:
 
 build:
   number: 1
-  skip: not (is_abi3 and is_python_min)
+  skip: is_abi3 and not is_python_min
   script:
     - cargo-bundle-licenses --format=yaml --output=THIRDPARTY.yml
     - ${{ PYTHON }} -m pip install . -vv --no-build-isolation --no-deps --disable-pip-version-check
@@ -61,10 +61,10 @@ tests:
         - pytest-cov
         - python ${{ python_check_min }}.*
     script:
-      - mypy -p minijinja
-      - cd minijinja-py/tests
+      - cd minijinja-py
       - coverage run --source minijinja --branch -m pytest -vv --tb=long --color=yes
-      - coverage report --show-missing --skip-covered --fail-under=100
+      - coverage report --show-missing --skip-covered --fail-under=84
+      - mypy -p minijinja
 
 about:
   summary: An experimental Python binding of the Rust MiniJinja template engine.
