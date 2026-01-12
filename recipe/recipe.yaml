@@ -4,6 +4,7 @@ schema_version: 1
 context:
   version: "2.14.0"
   maturin_min: "1.5"
+  python_check_min: "3.10"
   python_check_max: "3.14"
 
 package:
@@ -11,16 +12,18 @@ package:
   version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/minijinja-${{ version }}.tar.gz
+  url: https://pypi.org/packages/source/m/minijinja/minijinja-${{ version }}.tar.gz
   sha256: 6475823718bf1bce09eb190dd93aa5cd1412cec2c4b1736efa7125842300f0ae
 
 build:
   number: 1
-  skip: not (is_ab3 and is_python_min)
+  skip: not (is_abi3 and is_python_min)
   script:
     - cargo-bundle-licenses --format=yaml --output=THIRDPARTY.yml
     - ${{ PYTHON }} -m pip install . -vv --no-build-isolation --no-deps --disable-pip-version-check
     - echo "" > ${{ SP_DIR }}/minijinja/py.typed
+  python:
+    version_independent: true
 
 requirements:
   build:
@@ -47,16 +50,16 @@ tests:
       imports: minijinja
       pip_check: true
       python_version:
-        - ${{ python_min }}.*
+        - ${{ python_check_min }}.*
         - ${{ python_check_max }}.*
   - files:
       source:
-        - minijinja-py/tests
+        - minijinja-py/tests/
     requirements:
       run:
         - mypy
         - pytest-cov
-        - python ${{ python_min }}.*
+        - python ${{ python_check_min }}.*
     script:
       - mypy -p minijinja
       - cd minijinja-py/tests
