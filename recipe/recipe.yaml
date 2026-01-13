@@ -18,11 +18,16 @@ build:
   number: 1
   skip: is_abi3 and not is_python_min
   script:
-    - cargo-bundle-licenses --format=yaml --output=THIRDPARTY.yml
-    - ${{ PYTHON }} -m pip install . -vv --no-build-isolation --no-deps --disable-pip-version-check
-    # see: https://github.com/mitsuhiko/minijinja/pull/853
-    # SP_DIR is broken on 3.14t, use python API
-    - ${{ PYTHON }} -c "import site, pathlib; (pathlib.Path(site.getsitepackages()[0]) / 'minijinja/py.typed').touch()"
+    env:
+      # for windows
+      # ⚠ warning Error reading output: Custom { kind: InvalidData, error: "stream did not contain valid UTF-8" }
+      PYTHONIOENCODING: utf-8
+    content:
+      - cargo-bundle-licenses --format=yaml --output=THIRDPARTY.yml
+      - ${{ PYTHON }} -m pip install . -vv --no-build-isolation --no-deps --disable-pip-version-check
+      # see: https://github.com/mitsuhiko/minijinja/pull/853
+      # SP_DIR is broken on 3.14t, use python API
+      - ${{ PYTHON }} -c "import site, pathlib; (pathlib.Path(site.getsitepackages()[0]) / 'minijinja/py.typed').touch()"
   python:
     version_independent: ${{ is_abi3 }}
 
