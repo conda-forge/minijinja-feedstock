@@ -27,7 +27,7 @@ build:
       - ${{ PYTHON }} -m pip install . -vv --no-build-isolation --no-deps --disable-pip-version-check
       # see: https://github.com/mitsuhiko/minijinja/pull/853
       # SP_DIR is broken on 3.14t, use python API
-      - ${{ PYTHON }} -c "import site, pathlib; (pathlib.Path(site.getsitepackages()[0]) / 'minijinja/py.typed').touch()"
+      - ${{ PYTHON }} -c "import site, pathlib; (pathlib.Path(site.getsitepackages()[-1]) / 'minijinja/py.typed').touch()"
   python:
     version_independent: ${{ is_abi3 }}
 
