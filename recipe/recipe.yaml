@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "2.14.0"
+  version: "2.15.1"
   maturin_min: "1.5"
   python_check_max: "3.14"
 
@@ -12,10 +12,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/m/minijinja/minijinja-${{ version }}.tar.gz
-  sha256: 6475823718bf1bce09eb190dd93aa5cd1412cec2c4b1736efa7125842300f0ae
+  sha256: f25ae7a479cd7771e7d2c482bf59211e72196db7e0c7c858339331163f299cca
 
 build:
-  number: 1
+  number: 0
   skip: is_abi3 and not is_python_min
   script:
     env:
