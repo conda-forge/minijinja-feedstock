@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "2.20.0"
+  version: "2.21.0"
   maturin_min: "1.5"
   python_check_max: "3.14"
   # rattler-build doesn't define SP_DIR during test, and chokes on strings starting with %
@@ -17,7 +17,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/m/minijinja/minijinja-${{ version }}.tar.gz
-  sha256: 93364945c36a2b44d8b62af068ff0c11c8b3f3fa2b11599190249bd4cd2c31ad
+  sha256: cdc6eea934e535099fec9b4d180d0e768122fd4750b1721136bde8c92b3f9a4e
 
 build:
   number: 0
