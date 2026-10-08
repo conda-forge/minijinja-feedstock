@@ -13,7 +13,7 @@ package:
   version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/m/minijinja/minijinja-${{ version }}.tar.gz
+  url: https://files.pythonhosted.org/packages/source/m/minijinja/minijinja-${{ version }}.tar.gz
   sha256: 68b7dd99eb250fbd1c42edb05303d7137d4f3475aeeaae9d4efa6742c7ae0527
 
 build:
