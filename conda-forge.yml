@@ -1,5 +1,5 @@
 bot:
-  inspection: hint-grayskull
+  inspection: hint-all
 conda_build:
   error_overlinking: true
 conda_build_tool: rattler-build
@@ -9,6 +9,8 @@ github:
   branch_name: main
   tooling_branch_name: main
 provider:
-  osx_arm64: default
   linux_aarch64: default
   linux_ppc64le: default
+  linux_riscv64: default
+  osx_arm64: default
+  win_arm64: default
