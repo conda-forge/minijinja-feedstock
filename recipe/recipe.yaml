@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "3.0.1"
+  version: "3.0.3"
   maturin_min: "1.9.4"
   maturin_max: "2"
   python_check_max: "3.14"
@@ -14,7 +14,7 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/m/minijinja/minijinja-${{ version }}.tar.gz
-  sha256: 7e1b012a56414134adc46a79a649b529c35a3b955ccb8407a4ce34441c9842ce
+  sha256: d37de1cbf233ea75c7eb06b8b6cf84b8b9a8f4cffc85d54c0f949dbf47ac8f07
 
 build:
   number: 0
