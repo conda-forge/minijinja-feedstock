@@ -2,10 +2,10 @@
 schema_version: 1
 
 context:
-  version: "3.0.4"
+  version: "3.0.5"
   maturin_min: "1.9.4"
   maturin_max: "2"
-  python_check_max: "3.14"
+  python_check_max: "3.15"
   cargo_wrapper: cargo-auditable-wrapper${{ ".sh" if unix else ".bat" }}
 
 package:
@@ -14,7 +14,7 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/m/minijinja/minijinja-${{ version }}.tar.gz
-  sha256: 4d281f123f2472a5e7b3c47108d46cb7add73e52748035b8207258186ffa4d8c
+  sha256: eb7e4cf1780a5b9f4aba569accad72efcfd6a18937583e7765857d542116e862
 
 build:
   number: 0
